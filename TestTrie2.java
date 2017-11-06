@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TrieTest2 {
+class TestTrie2 {
 
     MyTrie trie = new MyTrie();
 
