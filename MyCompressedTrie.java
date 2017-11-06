@@ -26,11 +26,15 @@ public class MyCompressedTrie {
     //
     public MyCompressedTrie(MyTrie trie) {
         this();
-        // call to the simple constructor above (empty trie consisting of root only)
-        // **** a lot of code to be implemented here, with possible ***
-        // calls to private auxiliary methods that you may want create.
-        // now we just have a dummy method that prints a message.
-        System.out.println("MyCompressedTrie(MyTrie) not implemented!");
+        System.out.println("MyCompressedTrie(MyTrie) not implemented! Read comment in function!");
+
+        /* Did not have time to complete this part however I can explain teh general process
+
+        We need to make it so that each internal node must have two child nodes.
+        If a parent has two child nodes,then since we actually need to have two diverging branches, we don't need to compress them.
+
+        This means that generally if a parent has one child, it can be compressed. To do so, we would merge the 2 nodes and record the merge between their values.
+         */
 
     }
 
@@ -40,15 +44,15 @@ public class MyCompressedTrie {
         printStringsInLexicoOrder(root, "");
     }
 
-    public void printStringsInLexicoOrder(TreeNode root, String str) {
-        if (root.getIsUsed()) {
+    public void printStringsInLexicoOrder(TreeNodeWithData root, String str) {
+        if (root.getData() != null) {
             System.out.print(str + ",");
         }
         if (root.getLeftChild() != null) {
-            printStringsInLexicoOrder(root.getLeftChild(), str + "0");
+            printStringsInLexicoOrder((TreeNodeWithData) root.getLeftChild(), str + "0");
         }
         if (root.getRightChild() != null) {
-            printStringsInLexicoOrder(root.getRightChild(), str + "1");
+            printStringsInLexicoOrder((TreeNodeWithData) root.getRightChild(), str + "1");
         }
     }
 
